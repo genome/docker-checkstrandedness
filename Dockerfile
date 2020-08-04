@@ -1,22 +1,17 @@
-FROM python:slim
-LABEL \
-    description="Check Strandedness tool for RNA-seq workflow"
+FROM dceoy/kallisto
 
-RUN apt-get update -y && apt-get install -y \
-    build-essential \
-    bzip2 \
-    cmake \
-    git \
-    libnss-sss \
-    libtbb2 \
-    libtbb-dev \
-    ncurses-dev \
-    nodejs \
-    tzdata \
-    unzip \
-    wget \
-    zlib1g \
-    zlib1g-dev
+RUN apt-get update  && apt-get install -y \
+		build-essential \
+		cmake \
+		python \
+		python3-pip \
+		python-dev \
+		hdf5-tools \
+		libhdf5-dev \
+		hdf5-helpers \
+		libhdf5-serial-dev \
+		git \
+		apt-utils
 
 RUN git clone https://github.com/betsig/how_are_we_stranded_here.git \
     && pip3 install git+https://github.com/betsig/how_are_we_stranded_here.git
