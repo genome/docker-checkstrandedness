@@ -1,3 +1,3 @@
 # checkstranded
 
-#Dockerfile for how_are_we_stranded_here
+Dockerfile for how_are_we_stranded_here
