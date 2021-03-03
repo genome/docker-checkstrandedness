@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y wget \
     && rm -fr /kallisto_linux-v0.44.0/* \
     && rm -r /var/lib/apt/lists/*
 
-ENTRYPOINT ["/usr/local/bin/kallisto"]
+ENV PATH /usr/local/bin/:$PATH
 
 RUN apt-get update  && apt-get install -y \
 		build-essential \
@@ -39,4 +39,4 @@ RUN apt-get update  && apt-get install -y \
 RUN git clone https://github.com/betsig/how_are_we_stranded_here.git \
     && pip3 install git+https://github.com/betsig/how_are_we_stranded_here.git
 
-ENTRYPOINT ["/bin/bash"]
+CMD ["/bin/bash"]
